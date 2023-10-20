@@ -1,0 +1,6 @@
+
+<ul>
+    <% @quizzes.each do |quiz| %>
+        <%= render(QuizComponent.new(quiz: quiz)) %>
+    <% end %>
+</ul>

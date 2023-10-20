@@ -1,0 +1,50 @@
+<div class="w-fit block m-auto mb-10">
+
+<%= image_tag "logo-light.png", class: "w-2/4 block m-auto mt-10" %>
+
+    <div data-controller="auth-form">
+        <div data-auth-form-target="loginView" class="bg-white border-slate-100 border-8 m-20 p-10 w-3/4 m-auto mt-8 rounded">
+
+            <div>
+                <%= form_for @user, url: user_session_path, method: :post, html: { data: { action: "turbo:submit-end->sign-in-form#next"}} do |f| %>
+                    <div class="w-full">
+                        <label for="">Username or Email</label>
+
+                        <%= f.text_field :login, 
+                            class: "w-full rounded border-slate-300 hover:border-blue-500",
+                            data: {
+                                action: "auth-form#bind",
+                                auth_form_target: "login"
+                            } %>
+
+                        <%# <input 
+                            type="text" 
+                            class="w-full rounded border-slate-300 hover:border-blue-500"
+                            data-action="auth-form#bind"
+                            data-auth-form-target="login"
+                        > %>
+                    </div>
+
+                    <div class="w-full">
+                        <label for="">Password</label>
+                        <%= f.password_field :password, class: "w-full rounded border-slate-300 hover:border-blue-500" %>
+                    </div>
+
+                    <button type="submit" class="w-full bg-yellow-100 text-center p-3 mt-4">
+                        Log In
+                    </button>
+                <% end %>
+
+                <hr class="my-4">
+
+            </div>
+
+            <span data-action="click->auth-form#toggle">Sign Up</span>
+
+        </div>
+
+        <div data-auth-form-target="signUpView" class="hidden">
+            <%= render partial: "shared/signup_form", locals: {user: @user} %>
+        </div>
+    </div>
+</div>

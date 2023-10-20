@@ -1,0 +1,9 @@
+<li class="p-6 bg-white block rounded
+ shadow m-auto mt-2 mx-8">
+    <div class="text-2xl">
+        <%= @quiz.question ? @quiz.question.html_safe : "" %>
+    </div>
+
+    <hr class="my-4"/>
+    <span class="text-slate-500 italic">- <%= @quiz.breadcrumbs.map{|t| "<a href='/chapters/#{t.id}'>#{t.title}</a>" }.join(" > ").html_safe %></span>
+</li>

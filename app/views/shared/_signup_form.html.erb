@@ -1,0 +1,53 @@
+
+
+
+    <div class="bg-white border-slate-100 border-8 m-20 p-10 w-3/4 m-auto mt-14 rounded">
+        <%= form_for user, url: user_session_path, method: :post do |f| %>
+            <div class="w-full mt-2">
+                <label for="">Email</label>
+
+
+                <input type="text" 
+                    name="email"
+                    class="w-full rounded border-slate-300 hover:border-blue-500"
+                    data-auth-form-email-value="test"
+                    data-action="auth-form#bind"
+                    data-auth-form-target="email"
+                >
+            </div>
+
+            <div class="w-full mt-2">
+                <label for="">Username</label>
+                <input type="text" 
+                    name="username"
+                    class="w-full rounded border-slate-300 hover:border-blue-500"
+                    data-auth-form-username-value="test"
+                    data-action="auth-form#bind"
+                    data-auth-form-target="username"
+                >
+            </div>
+
+
+            <div class="w-full mt-2">
+                <label for="">Password</label>
+                <%= f.password_field :password, class: "w-full rounded border-slate-300 hover:border-blue-500" %>
+            </div>
+
+            <div class="w-full mt-2">
+                <label for="">Confirm Password</label>
+                <%= f.password_field :password_confirmation, class: "w-full rounded border-slate-300 hover:border-blue-500" %>
+            </div>
+
+            <button type="submit" class="w-full bg-yellow-100 text-center p-3 mt-4">
+                Sign Up
+            </button>
+        <% end %>
+
+        <hr class="my-4">
+
+
+        <span data-action="click->auth-form#toggle">Log In</span>
+
+
+
+    </div>

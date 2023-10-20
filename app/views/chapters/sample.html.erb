@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "chapters-sample" do %>
+    <div class="chapters-sample" data-target="chapters-sample">
+        <% @chapters.each do |chapter|%>
+            <%= render ChapterTabComponent.new(chapter: chapter) %>
+        <% end %>
+    </div>
+<% end %>

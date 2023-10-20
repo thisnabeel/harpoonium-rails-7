@@ -1,0 +1,21 @@
+<div class="show-chapter">
+    <h1 class="text-3xl text-center p-10 font-bold"><%= @chapter.title %></h1>    
+
+    <ul class="quizzes">
+        <% @chapter.quizzes.each do |quiz| %>
+            <%= render(QuizComponent.new(quiz: quiz)) %>
+        <% end %>
+    </ul>
+
+</div>
+
+<style>
+    .show-chapter {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        position: relative;
+        margin-top: 10px;
+    }
+    
+</style>
